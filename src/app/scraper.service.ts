@@ -9,7 +9,8 @@ import { Record } from './shared/record';
 })
 export class ScraperService {
 
-  baseUrl = 'http://localhost:8080';
+  // baseUrl = 'http://localhost:8080';
+  baseUrl = 'https://screen-scraper.herokuapp.com';
 
   constructor(private http: HttpClient) { }
   // Http Headers
