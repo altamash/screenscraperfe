@@ -1,0 +1,73 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+   margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+   overflow: hidden;
+}
+
+/* tr.mat-row { height: 50px; }
+td.mat-cell { height: 50px; }
+td.mat-cell { height: 50px; }
+table mat-table { height: auto; } */
+
+/* .table_div {
+  width: 90%;
+  height: auto;
+  text-align: center;
+} */
+/* .mat-header-row {
+  background-color: pink;
+} */
+
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: inherit;
+}
+
+.mdc-button {
+  /* background-color: red !important; */
+  /* height: 68px !important; */
+}
+
+.filter {
+  /* height: auto; */
+  padding: 5px;
+  height: 45px;
+}
+
+.table_div {
+  padding: 15px;
+  height: auto;
+}
+
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 {
+  grid-area: main;
+  overflow-y: scroll;
+  /* padding: 20px; */
+  /* margin: 10px; */
+}
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+
+.grid-container {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-areas:
+    'header header header header header'
+    'menu main main main right'
+    'menu footer footer footer footer';
+  /* gap: 10px; */
+  /* background-color: #2196F3; */
+  /* padding: 10px; */
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  /* padding: 20px 0; */
+  font-size: 30px;
+}
