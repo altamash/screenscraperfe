@@ -32,23 +32,23 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class DashboardComponent implements OnInit {
 
-  displayedColumns: string[] = ['jurisdiction', 'fileNumber', 'saleTime', 'propertyAddress', 'city', 'zip', 'originalLoanAmount'];
+  displayedColumns: string[] = ['fileNumber', 'saleTime', 'propertyAddress', 'city', 'zip', 'originalLoanAmount'];
   dataSource = ELEMENT_DATA;
 
   records: Record[] = [];
   zip: string = '';
-  jurisdiction: string = '';
+  city: string = '';
   miles: string = '';
   filterForm: FormGroup;
   destroy$: Subject<boolean> = new Subject<boolean>();
 
   ngOnInit() {
     this.filterForm = this.formBuilder.group({
+      city: '',
       zip: '',
-      jurisdiction: '',
       miles: ''
     });
-    this.getRecords(this.zip, this.jurisdiction, this.miles);
+    this.getRecords(this.city, this.zip, this.miles);
   }
 
   onSubmit(): void {
@@ -56,14 +56,14 @@ export class DashboardComponent implements OnInit {
       return;
     }
     // this.zip = this.filterForm.get('zip').value;
-    this.getRecords(this.filterForm.value.zip, this.filterForm.value.jurisdiction, this.filterForm.value.miles);
+    this.getRecords(this.filterForm.value.city, this.filterForm.value.zip, this.filterForm.value.miles);
   }
 
   constructor(public scraperService: ScraperService, private formBuilder: FormBuilder) {}
 
-  getRecords(zip: string, jurisdiction: string, miles: string) {
+  getRecords(city: string, zip: string, miles: string) {
     this.scraperService
-        .GerRecords(zip, jurisdiction, miles)
+        .GerRecords(city, zip, miles)
         .pipe(takeUntil(this.destroy$))
         .subscribe((data: Record[]) => {
           this.records = data;

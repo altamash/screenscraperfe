@@ -4,8 +4,8 @@
           <form id="filterForm" [formGroup]="filterForm" (ngSubmit)="onSubmit()">
               <div>
                 <mat-form-field>
-                  <mat-label>Jurisdiction</mat-label>
-                  <input matInput formControlName="jurisdiction">
+                  <mat-label>City</mat-label>
+                  <input matInput formControlName="city">
                 </mat-form-field>&nbsp;
                 <mat-form-field>
                     <mat-label>Zip Code</mat-label>
@@ -23,10 +23,10 @@
         <table mat-table [dataSource]="records" class="mat-elevation-z8">
             <!--- Note that these columns can be defined in any order.
                     The actual rendered columns are set as a property on the row definition" -->
-            <ng-container matColumnDef="jurisdiction">
+            <!-- <ng-container matColumnDef="jurisdiction">
                 <th mat-header-cell *matHeaderCellDef> Jurisdiction </th>
                 <td mat-cell *matCellDef="let element"> {{element.jurisdiction}} </td>
-            </ng-container>
+            </ng-container> -->
             <ng-container matColumnDef="fileNumber">
                 <th mat-header-cell *matHeaderCellDef> File Number </th>
                 <td mat-cell *matCellDef="let element"> {{element.fileNumber}} </td>

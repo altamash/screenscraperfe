@@ -20,17 +20,17 @@ export class ScraperService {
   //   }),
   // };
 
-  public GerRecords(zip: string, jurisdiction: string, miles: string): Observable<Record[]> {
-    if (zip != null && jurisdiction != null) {
+  public GerRecords(city: string, zip: string, miles: string): Observable<Record[]> {
+    if (city != null && zip != null) {
       return this.http
-        .get<Record[]>(this.baseUrl + `/screenscraper?zip=${zip}&jurisdiction=${jurisdiction}&miles=${miles}`)
+        .get<Record[]>(this.baseUrl + `/screenscraper?zip=${zip}&city=${city}&miles=${miles}`)
         .pipe(retry(1), catchError(this.errorHandl));
     } else if (zip != null) {
       return this.http
         .get<Record[]>(this.baseUrl + `/screenscraper?zip=${zip}&miles=${miles}`)
-    } else if (jurisdiction != null) {
+    } else if (city != null) {
       return this.http
-        .get<Record[]>(this.baseUrl + `/screenscraper?jurisdiction=${jurisdiction}`)
+        .get<Record[]>(this.baseUrl + `/screenscraper?city=${city}`)
     }
     return this.http
           .get<Record[]>(this.baseUrl + '/screenscraper')
